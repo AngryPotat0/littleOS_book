@@ -18,10 +18,12 @@
 
 或者也可以创建一个汇编文件bootsect.asm，写入以下程序：
 
-    loop:
-    jmp loop 
-    times 510-($-$$) db 0
-    dw 0xaa55 
+```assembly
+loop:
+jmp loop 
+times 510-($-$$) db 0
+dw 0xaa55 
+```
 
 然后使用nasm：  nasm -f bin bootsect.asm -o bootsect.bin
 
