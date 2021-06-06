@@ -4,7 +4,9 @@
 
 在ubuntu上（如果使用的是win10，则可以使用wsl安装ubuntu20.04），我们只需要在终端上执行下面这条命令：
 
+```shell
 sudo apt-get install build-essential nasm genisoimage bochs bochs-sdl
+```
 
 就可以安装好我们前期所需要的软件。
 
