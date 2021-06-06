@@ -105,28 +105,28 @@ loader:
 
 万事俱备，首先编译loader.s，进入kernel文件夹，使用nasm：
 
-nasm -f elf32 loader.s
+    nasm -f elf32 loader.s
 
 就得到了loader.o文件，到上一级目录，使用链接器ld：
 
-ld -T link.ld -melf_i386 kernel/loader.o -o kernel.elf
+    ld -T link.ld -melf_i386 kernel/loader.o -o kernel.elf   
 
 然后把得到的kernel.elf复制到iso/boot下，就是我们在menu.lst中写的位置，使用下面的命令生成镜像文件：
 
     genisoimage -R                              \
-                    -b boot/grub/stage2_eltorito    \
-                    -no-emul-boot                   \
-                    -boot-load-size 4               \
-                    -A os                           \
-                    -input-charset utf8             \
-                    -quiet                          \
-                    -boot-info-table                \
-                    -o os.iso                       \
-                    iso
+                -b boot/grub/stage2_eltorito    \
+                -no-emul-boot                   \
+                -boot-load-size 4               \
+                -A os                           \
+                -input-charset utf8             \
+                -quiet                          \
+                -boot-info-table                \
+                -o os.iso                       \
+                iso
 
 我们就得到了我们这个简易操作系统的镜像文件，使用bochs来运行它：
 
-bochs -f bch.txt -q
+    bochs -f bch.txt -q
 
 然后我们就可以看到这个界面：
 

@@ -4,4 +4,5 @@
 * [环境配置](Chapter0/README.md)
 * [boot-sect](Chapter1/README.md)
 * [使用GRUB](Chapter2/README.md)
+* [ 使用C语言](Chapter3/README.md)
 
