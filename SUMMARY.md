@@ -7,4 +7,5 @@
 * [ 使用C语言](Chapter3/README.md)
 * [Hello World](Chapter4/README.md)
 * [屏幕输出](Chapter5/README.md)
+* [printf](Chapter6/README.md)
 

@@ -173,8 +173,8 @@ void clearScreen()
 void putChar(char character, int row,int col, char attr)
 {
     unsigned char* screen = (unsigned char*)VIDEO_ADDRESS;
-    if(!attr)attr = WHITE_ON_BLACK;
-    if(col >= MAX_COLS || row >= MAX_ROWS){
+    if(!attr)attr = WHITE_ON_BLACK;//默认黑底白字
+    if(col >= MAX_COLS || row >= MAX_ROWS){//越界，报错
         int pos = MAX_COLS * MAX_ROWS * 2;
         screen[pos - 2] = 'E';
         screen[pos - 1] = RED_ON_WHITE;
@@ -183,7 +183,7 @@ void putChar(char character, int row,int col, char attr)
 
     int offset;
     if(col < 0 && row < 0){//直接在当前光标处输出
-        offset = getCursorOffset();
+        offset = getCursorOffset();//获取当前光标位置
     }
     else{//否则输出到指定位置
         offset = getOffset(row,col);
@@ -199,11 +199,11 @@ void putChar(char character, int row,int col, char attr)
         offset += 2;
     }
 
-    setCursorOffset(offset);
+    setCursorOffset(offset);//设置新的光标位置
 }
 ```
 
-当输出位置的行和列都小于0时，即col或者row小于0时，我们直接将字符输出在当前光标处，否则就输出在指定位置。输出字符后重新设置光标位置。这个putChar函数是我们以后所有字符输出的核心，我们后面所有的字符输出相关函数都与它相关。
+当输出位置的行和列都小于0时，即col或者row小于0时，我们直接将字符输出在当前光标处，否则就输出在指定位置。输出字符后重新设置光标位置。
 
 然后实现printChar，也就是在当前光标处直接输出一个字符，这个可以通过我们刚写的putChar实现
 
@@ -214,7 +214,7 @@ void printChar(char c)
 }
 ```
 
-现在，我们就有了实现printf所需的全部功能，我们可以先写一个printString测试一下
+现在，我们就有了实现printf所需的全部功能，可以先写一个printString测试一下，确保这些代码能够正常工作。
 
 ```c
 void printString(char *str)
