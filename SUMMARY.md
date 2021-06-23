@@ -9,4 +9,5 @@
 * [屏幕输出](5-屏幕输出/README.md)
 * [printf](6-printf/README.md)
 * [屏幕滚动](7-屏幕滚动/README.md)
+* [GDT](8-GDT/README.md)
 
